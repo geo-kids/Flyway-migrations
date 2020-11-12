@@ -5,7 +5,7 @@ This repository includes an example of how to build a custom Flyway image to per
 ## Note
 
 * Make sure to update the *flyway.conf* file with your host, port, user and password information
-* Make sure to check the paths for both Configuration file and SQL Scripts
+* Make sure to update the path where the configuration file will be stored
 
 ## Intructions
 ### Build custom Flyway image
@@ -16,23 +16,20 @@ docker build . -t flyway-migrations
 ### Set $ConfigFile and $SQLScripts
 ```bash
 ConfigFile=./ConfigFile;
-SQLScripts=./SQLScripts;
 ```
 ### Perform migrations
 ```docker
 # Check migrations info
 docker container run --rm \
     --volume $ConfigFile:/flyway/conf \
-    --volume $SQLScripts:/flyway/sql \
     --network host \
-    flyway/flyway info
+    flyway-migrations info
     
 # Perform migrations
 docker container run --rm \
     --volume $ConfigFile:/flyway/conf \
-    --volume $SQLScripts:/flyway/sql \
     --network host \
-    flyway/flyway migrate
+    flyway-migrations migrate
 ```
 
 ## Questions?
