@@ -4,7 +4,7 @@ This repository includes an example of how to build a custom Flyway image to per
 
 ## Note
 
-* Make sure to update the *flyway.conf* file to point your target database
+* Make sure to update the *flyway.conf* file with your host, port, user and password information
 * Make sure to check the paths for both Configuration file and SQL Scripts
 
 ## Intructions
